@@ -6,6 +6,10 @@ import requests
 import random
 
 #1
+    """
+    Returns a tuple with the minimum number of U.S. quarters, dimes, nickels,
+    and pennies, respectively, that make the given amount.
+    """
 def change(number):
     if number < 0:
         raise ValueError('amount cannot be negative')
@@ -16,14 +20,21 @@ def change(number):
     return (quarters, dimes, nickels, pennies)
 
 #2
+    """
+    Returns the string like s but with apostrophes and quotation marks removed.
+    """
 def strip_quotes(s):
     return re.sub('[\'"]', '', s)
 
 #3
+    """
+    Return a random permutation of a string.
+    """
 def scramble(string):
     return ''.join(random.sample(string, len(string)))
 
 #4
+    """Returns a generator for powers of base up to limit"""
 def powers(base, limit):
     value = 1
     while value <= limit:
@@ -31,6 +42,9 @@ def powers(base, limit):
         value *= base
 
 #5
+    """
+    Return a list of integer Pythagorean triples with max hypotenuse, limit.
+    """
 def triples(limit):
     return [(x, y, z)
         for x in range(1, limit + 1)
@@ -39,6 +53,7 @@ def triples(limit):
         if x * x + y * y == z * z]
 
 #6
+    """Returns a string of words from the famous chainable function problem."""
 def say(a = ''):
     if a == '':
         return a
@@ -49,6 +64,10 @@ def say(a = ''):
     return sayAgain
 
 #7
+    """
+    Returns the interleaving of an array with a bunch of values. The lengths
+    of the array and the number of values do not need to be the same.
+    """
 def interleave(array, *argv):
     result = []
     arrayLength = len(array)
@@ -81,11 +100,17 @@ class Cylinder:
 
 
 #9
+    """
+    Return a tuple of two functions, one for encryption and one for decryption
+    """
 def make_crypto_functions(key):
     cipher = Fernet(key)
     return (cipher.encrypt, cipher.decrypt)
 
 #10
+    """
+    Return a random name with the given region and geneder using the uinames API.
+    """
 def random_name(**k):
     url = 'http://uinames.com/api/'
     info = requests.get(url=url, params=k)
